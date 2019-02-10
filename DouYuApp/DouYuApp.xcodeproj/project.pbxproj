@@ -13,12 +13,6 @@
 		BAAE194722105A4C00E8F10C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAE194522105A4C00E8F10C /* LaunchScreen.storyboard */; };
 		BAAE195222105A4C00E8F10C /* DouYuAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAE195122105A4C00E8F10C /* DouYuAppTests.swift */; };
 		BAAE195D22105A4D00E8F10C /* DouYuAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAE195C22105A4D00E8F10C /* DouYuAppUITests.swift */; };
-		BAAE19782210855B00E8F10C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAE19772210855B00E8F10C /* ViewController.swift */; };
-		BAAE197A2210858B00E8F10C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAE19792210858B00E8F10C /* ViewController.swift */; };
-		BAAE197C2210859900E8F10C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAE197B2210859900E8F10C /* ViewController.swift */; };
-		BAAE197E221085A600E8F10C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAE197D221085A600E8F10C /* ViewController.swift */; };
-		BAAE1980221085B500E8F10C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAE197F221085B500E8F10C /* ViewController.swift */; };
-		BAAE1982221085BE00E8F10C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAE1981221085BE00E8F10C /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,12 +45,6 @@
 		BAAE195822105A4D00E8F10C /* DouYuAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DouYuAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAAE195C22105A4D00E8F10C /* DouYuAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DouYuAppUITests.swift; sourceTree = "<group>"; };
 		BAAE195E22105A4D00E8F10C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAAE19772210855B00E8F10C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BAAE19792210858B00E8F10C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BAAE197B2210859900E8F10C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BAAE197D221085A600E8F10C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BAAE197F221085B500E8F10C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BAAE1981221085BE00E8F10C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +139,6 @@
 		BAAE1971221084AF00E8F10C /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				BAAE197D221085A600E8F10C /* ViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -159,7 +146,6 @@
 		BAAE1972221084AF00E8F10C /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				BAAE1981221085BE00E8F10C /* ViewController.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -167,7 +153,6 @@
 		BAAE1973221084AF00E8F10C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				BAAE19792210858B00E8F10C /* ViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -175,7 +160,6 @@
 		BAAE1974221084AF00E8F10C /* Live */ = {
 			isa = PBXGroup;
 			children = (
-				BAAE197B2210859900E8F10C /* ViewController.swift */,
 			);
 			path = Live;
 			sourceTree = "<group>";
@@ -183,7 +167,6 @@
 		BAAE1975221084AF00E8F10C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				BAAE197F221085B500E8F10C /* ViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -191,7 +174,6 @@
 		BAAE1976221084AF00E8F10C /* Follow */ = {
 			isa = PBXGroup;
 			children = (
-				BAAE19772210855B00E8F10C /* ViewController.swift */,
 			);
 			path = Follow;
 			sourceTree = "<group>";
@@ -327,12 +309,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAAE1980221085B500E8F10C /* ViewController.swift in Sources */,
-				BAAE197E221085A600E8F10C /* ViewController.swift in Sources */,
-				BAAE197A2210858B00E8F10C /* ViewController.swift in Sources */,
-				BAAE19782210855B00E8F10C /* ViewController.swift in Sources */,
-				BAAE1982221085BE00E8F10C /* ViewController.swift in Sources */,
-				BAAE197C2210859900E8F10C /* ViewController.swift in Sources */,
 				BAAE193D22105A4B00E8F10C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
