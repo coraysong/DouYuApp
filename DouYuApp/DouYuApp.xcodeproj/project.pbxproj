@@ -13,6 +13,9 @@
 		BAAE194722105A4C00E8F10C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAAE194522105A4C00E8F10C /* LaunchScreen.storyboard */; };
 		BAAE195222105A4C00E8F10C /* DouYuAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAE195122105A4C00E8F10C /* DouYuAppTests.swift */; };
 		BAAE195D22105A4D00E8F10C /* DouYuAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAE195C22105A4D00E8F10C /* DouYuAppUITests.swift */; };
+		BAECCDF52366D3D6000D565B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAECCDF42366D3D6000D565B /* MainTabBarController.swift */; };
+		BAECCE042366D7F8000D565B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAECCE032366D7F8000D565B /* HomeViewController.swift */; };
+		BAECCE062366DD27000D565B /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAECCE052366DD27000D565B /* UIBarButtonItem-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		BAAE195822105A4D00E8F10C /* DouYuAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DouYuAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAAE195C22105A4D00E8F10C /* DouYuAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DouYuAppUITests.swift; sourceTree = "<group>"; };
 		BAAE195E22105A4D00E8F10C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAECCDF42366D3D6000D565B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		BAECCE032366D7F8000D565B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BAECCE052366DD27000D565B /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,7 @@
 		BAAE193B22105A4B00E8F10C /* DouYuApp */ = {
 			isa = PBXGroup;
 			children = (
+				BAECCDFF2366D776000D565B /* Tools */,
 				BAAE196A2210806800E8F10C /* Classes */,
 				BAAE193C22105A4B00E8F10C /* AppDelegate.swift */,
 				BAAE194022105A4B00E8F10C /* Main.storyboard */,
@@ -126,56 +133,106 @@
 		BAAE196A2210806800E8F10C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				BAAE1976221084AF00E8F10C /* Follow */,
-				BAAE1973221084AF00E8F10C /* Home */,
-				BAAE1974221084AF00E8F10C /* Live */,
-				BAAE1971221084AF00E8F10C /* Main */,
-				BAAE1975221084AF00E8F10C /* Profile */,
-				BAAE1972221084AF00E8F10C /* Tools */,
+				BAECCDFE2366D76D000D565B /* Profile */,
+				BAECCDFD2366D761000D565B /* Main */,
+				BAECCDFC2366D753000D565B /* Live */,
+				BAECCDFB2366D744000D565B /* Follow */,
+				BAECCDF72366D70D000D565B /* Home */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		BAAE1971221084AF00E8F10C /* Main */ = {
+		BAECCDF72366D70D000D565B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		BAAE1972221084AF00E8F10C /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		BAAE1973221084AF00E8F10C /* Home */ = {
-			isa = PBXGroup;
-			children = (
+				BAECCDFA2366D734000D565B /* Controller */,
+				BAECCDF92366D72C000D565B /* View */,
+				BAECCDF82366D726000D565B /* Model */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		BAAE1974221084AF00E8F10C /* Live */ = {
+		BAECCDF82366D726000D565B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BAECCDF92366D72C000D565B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BAECCDFA2366D734000D565B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BAECCE032366D7F8000D565B /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BAECCDFB2366D744000D565B /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Follow;
+			sourceTree = "<group>";
+		};
+		BAECCDFC2366D753000D565B /* Live */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Live;
 			sourceTree = "<group>";
 		};
-		BAAE1975221084AF00E8F10C /* Profile */ = {
+		BAECCDFD2366D761000D565B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BAECCE022366D7D0000D565B /* Controller */,
+				BAECCE012366D7C5000D565B /* View */,
+				BAECCE002366D7B9000D565B /* Model */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		BAECCDFE2366D76D000D565B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		BAAE1976221084AF00E8F10C /* Follow */ = {
+		BAECCDFF2366D776000D565B /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				BAECCE052366DD27000D565B /* UIBarButtonItem-Extension.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		BAECCE002366D7B9000D565B /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Follow;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BAECCE012366D7C5000D565B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BAECCE022366D7D0000D565B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BAECCDF42366D3D6000D565B /* MainTabBarController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,7 +366,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAECCDF52366D3D6000D565B /* MainTabBarController.swift in Sources */,
 				BAAE193D22105A4B00E8F10C /* AppDelegate.swift in Sources */,
+				BAECCE062366DD27000D565B /* UIBarButtonItem-Extension.swift in Sources */,
+				BAECCE042366D7F8000D565B /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
