@@ -8,7 +8,20 @@
 
 import UIKit
 
+private let kTitleViewH : CGFloat = 40
+
 class HomeViewController: UIViewController {
+    
+    //MARK:-懒加载属性
+    private lazy var pageTitleView : PageTitleView = {
+        let titleFrame = CGRect(x: 0, y: kStatusBarH + (self.navigationController?.navigationBar.frame.size.height)!, width: kScreenW, height: kTitleViewH)
+        let titles = ["推荐","游戏","娱乐","趣玩"]
+        
+        let titleView = PageTitleView(frame: titleFrame, titles: titles)
+        titleView.backgroundColor = .orange
+        return titleView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //设置界面
@@ -21,7 +34,10 @@ class HomeViewController: UIViewController {
 //MARK:-设置UI界面
 extension HomeViewController {
     private func setupUI(){
+        //1.设置导航栏
         setupNavigationBar()
+        //2.添加titleView
+        view.addSubview(pageTitleView)
     }
     private func setupNavigationBar(){
         //设置左侧的item
