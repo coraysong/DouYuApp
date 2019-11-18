@@ -10,6 +10,7 @@ import UIKit
 
 private let kTitleViewH : CGFloat = 40
 
+
 class HomeViewController: UIViewController {
     
     //MARK:-懒加载属性
@@ -20,6 +21,24 @@ class HomeViewController: UIViewController {
         let titleView = PageTitleView(frame: titleFrame, titles: titles)
         //titleView.backgroundColor = .orange
         return titleView
+    }()
+    
+    private lazy var pageContentView : PageContentView = {
+        
+        //1.确定内容的frame
+        let contentH = kScreenH - (self.navigationController?.navigationBar.frame.size.height)! - kTitleViewH
+        let contentFrame = CGRect(x: 0, y: kStatusBarH + (self.navigationController?.navigationBar.frame.size.height)! + kTitleViewH, width: kScreenW, height: contentH)
+        //2.确定所有的子控制器
+        var childVcs = [UIViewController]()
+        for _ in 0..<4 {
+            let vc = UIViewController()
+            vc.view.backgroundColor = UIColor.init(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
+            childVcs.append(vc)
+            
+        }
+        let contentView = PageContentView(frame: contentFrame, childVcs: childVcs, parentViewController: self)
+        return contentView
+        
     }()
     
     override func viewDidLoad() {
@@ -36,8 +55,13 @@ extension HomeViewController {
     private func setupUI(){
         //1.设置导航栏
         setupNavigationBar()
+        
         //2.添加titleView
         view.addSubview(pageTitleView)
+        
+        //3.添加contentView
+        view.addSubview(pageContentView)
+        pageContentView.backgroundColor = .purple
     }
     private func setupNavigationBar(){
         //设置左侧的item
