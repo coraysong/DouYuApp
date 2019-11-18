@@ -8,19 +8,29 @@
 
 import UIKit
 
+private let kScrollLineH : CGFloat = 2
+
 class PageTitleView: UIView {
     
     //MARK:- 定义属性
     private var titles : [String]
     
     //MARK:- 懒加载属性
+    private lazy var titleLabels : [UILabel] = [UILabel]()
+    
     private lazy var scrollView : UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsHorizontalScrollIndicator = false
         //当你想要点击直接回到第一行的话就必须禁用其他scrollview的这个属性
         scrollView.scrollsToTop = false
-//        scrollView.bounds = false
+        scrollView.bounces = false
         return scrollView
+    }()
+    
+    private lazy var scrollLine : UIView = {
+        let scrollLine = UIView()
+        scrollLine.backgroundColor = .orange
+        return scrollLine
     }()
     
     //MARK:- 自定义构造函数
@@ -48,8 +58,16 @@ extension PageTitleView {
         scrollView.frame = bounds
         //2.添加title对应的label
         setupTitleLabels()
+        //3.设置底线和滚动的滑块
+        setuoBottomLineAndScrollLine()
     }
     private func setupTitleLabels() {
+        
+        //0.确定一些frame值(不用每次遍历都创建的值，提高效率)
+        let labelW : CGFloat = frame.width / CGFloat(titles.count)
+        let labelH : CGFloat = frame.height - kScrollLineH
+        let labelY : CGFloat = 0
+        
         for(index, title) in titles.enumerated() {
             //1.创建UILabel
             let label = UILabel()
@@ -61,13 +79,31 @@ extension PageTitleView {
             label.textAlignment = .center
             
             //3.设置label的frame
-//            let labelW = frame.width / CGFloat(title.count)
-//            let labelH = <#value#>
-//            let labelX = <#value#>
-//            let labelY = <#value#>
-//
-//
-//            label.frame =
+            let labelX : CGFloat = labelW * CGFloat(index)
+
+
+            label.frame = CGRect(x: labelX, y: labelY, width: labelW, height: labelH)
+            
+            //4.添加label到scrollview中
+            scrollView.addSubview(label)
+            titleLabels.append(label)
         }
+    }
+    
+    private func setuoBottomLineAndScrollLine() {
+        //1.添加底线
+        let bottomLine = UIView()
+        bottomLine.backgroundColor = .lightGray
+        let lineH : CGFloat = 0.5
+        bottomLine.frame = CGRect(x: 0, y: frame.height, width: frame.width, height: lineH)
+        addSubview(bottomLine)
+        
+        //2.添加cscrollLine
+        //2.1获取第一个label
+        
+        guard let firstLabel = titleLabels.first else{return}
+        firstLabel.textColor = .orange
+        scrollView.addSubview(scrollLine)
+        scrollLine.frame = CGRect(x: firstLabel.frame.origin.x, y: frame.height - kScrollLineH, width: firstLabel.frame.width, height: kScrollLineH)
     }
 }
