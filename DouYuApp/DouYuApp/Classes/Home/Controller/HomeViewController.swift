@@ -14,20 +14,22 @@ private let kTitleViewH : CGFloat = 40
 class HomeViewController: UIViewController {
     
     //MARK:-懒加载属性
-    private lazy var pageTitleView : PageTitleView = {
-        let titleFrame = CGRect(x: 0, y: kStatusBarH + (self.navigationController?.navigationBar.frame.size.height)!, width: kScreenW, height: kTitleViewH)
+    private lazy var pageTitleView : PageTitleView = { [weak self] in
+        let titleFrame = CGRect(x: 0, y: kStatusBarH + (self?.navigationController?.navigationBar.frame.size.height)!, width: kScreenW, height: kTitleViewH)
         let titles = ["推荐","游戏","娱乐","趣玩"]
         
         let titleView = PageTitleView(frame: titleFrame, titles: titles)
         //titleView.backgroundColor = .orange
+        titleView.delegate = self
         return titleView
     }()
     
-    private lazy var pageContentView : PageContentView = {
+    //title下面的四个控制器的付控制器view
+    private lazy var pageContentView : PageContentView = { [weak self] in
         
         //1.确定内容的frame
-        let contentH = kScreenH - (self.navigationController?.navigationBar.frame.size.height)! - kTitleViewH
-        let contentFrame = CGRect(x: 0, y: kStatusBarH + (self.navigationController?.navigationBar.frame.size.height)! + kTitleViewH, width: kScreenW, height: contentH)
+        let contentH = kScreenH - (self?.navigationController?.navigationBar.frame.size.height)! - kTitleViewH
+        let contentFrame = CGRect(x: 0, y: kStatusBarH + (self?.navigationController?.navigationBar.frame.size.height)! + kTitleViewH, width: kScreenW, height: contentH)
         //2.确定所有的子控制器
         var childVcs = [UIViewController]()
         for _ in 0..<4 {
@@ -81,5 +83,13 @@ extension HomeViewController {
         let qrcodeItem = UIBarButtonItem(imageName: "Image_scan", highLightImageName: "Image_scan_click", size: size)
         
         navigationItem.rightBarButtonItems = [historyItem,searchItem,qrcodeItem]
+    }
+}
+
+
+//MARK:- 遵守PageTitleView的代理
+extension HomeViewController : PagetitleViewDelegate {
+    func pageTitleView(titleView: PageTitleView, selectedIndex index: Int) {
+        pageContentView.setCurrentIndex(currentIndex: index)
     }
 }

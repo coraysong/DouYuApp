@@ -14,13 +14,16 @@ class PageContentView: UIView {
     
     //MARK:- 定义属性
     private var childVcs : [UIViewController]
-    private var parentViewController : UIViewController
+    //这里要注意循环引用，如果这里对HomeViewController强引用的话，会产生循环引用
+    //另外添加weak之后会报错，因为，weak只能修饰可选类型
+    private weak var parentViewController : UIViewController?
     
     //MARK:- 懒加载属性
-    private lazy var collectionView : UICollectionView = {
+    //闭包内部使用self也有可能造成循环引用，所以加上
+    private lazy var collectionView : UICollectionView = { [weak self] in
         //1.创建layout
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = self.bounds.size
+        layout.itemSize = (self?.bounds.size)!
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
@@ -35,7 +38,10 @@ class PageContentView: UIView {
         return collectionView
     }()
     
-    init(frame: CGRect, childVcs:[UIViewController], parentViewController: UIViewController) {
+    //因为这些控制器要加入到父控制器中，所以我们传入它的父控制器
+    //自定义构造函数之后，一定要重写initwithCoder函数，即下面这个函数
+    //MARK:- 自定义构造函数
+    init(frame: CGRect, childVcs:[UIViewController], parentViewController: UIViewController?) {
         self.childVcs = childVcs
         self.parentViewController = parentViewController
         super.init(frame: frame)
@@ -53,13 +59,13 @@ class PageContentView: UIView {
 //MARK:- 设置UI界面
 extension PageContentView {
     private func setupUI() {
+        //FIXME: 这里不明白为什么要加入到父控制器
         //1.将所有的子控制器添加到父控制器中
-        for childVc in childVcs {
-            parentViewController.addChild(childVc)
-        }
+//        for childVc in childVcs {
+//            parentViewController.addChild(childVc)
+//        }
         
         //2.添加UICollectionView,用于在Cell中存放控制器的View
-        
         addSubview(collectionView)
         collectionView.frame = bounds
     }
@@ -75,6 +81,7 @@ extension PageContentView : UICollectionViewDataSource {
         //1.创建cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentID, for: indexPath)
         //2.给cell设置内容
+        //FIXME: 这里不明白为什么这样做,说是避免添加多次
         for view in cell.contentView.subviews {
             view.removeFromSuperview()
         }
@@ -87,4 +94,12 @@ extension PageContentView : UICollectionViewDataSource {
     }
     
     
+}
+
+//MARK:- 对外暴露的方法
+extension PageContentView {
+    func setCurrentIndex(currentIndex : Int) {
+        let offsetX = CGFloat(currentIndex) * collectionView.frame.width
+        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: false)
+    }
 }
