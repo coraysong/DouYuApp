@@ -28,11 +28,16 @@ class PageContentView: UIView {
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
         
+        //2.创建UICollectionView
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         collectionView.bounces = false
+        collectionView.delegate = self
         collectionView.dataSource = self
+        
+        collectionView.scrollsToTop = false
+        
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: ContentID)
         
         return collectionView
@@ -93,7 +98,13 @@ extension PageContentView : UICollectionViewDataSource {
         
     }
     
-    
+}
+
+//MARK:- uiscrollview代理
+extension PageContentView : UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+    }
 }
 
 //MARK:- 对外暴露的方法
