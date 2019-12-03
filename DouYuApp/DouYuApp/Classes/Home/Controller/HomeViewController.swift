@@ -28,6 +28,8 @@ class HomeViewController: UIViewController {
         
         //1.确定内容的frame
         var contentH : CGFloat = CGFloat(0)
+        
+        //FIXME: -第一次使用这个，要再回来看一下
         if #available(iOS 11.0, *) {
             contentH = kScreenH - (self?.navigationController?.navigationBar.frame.size.height)! - kTitleViewH - (self?.tabBarController?.tabBar.frame.size.height)! - (self?.view.safeAreaInsets.bottom)! - kStatusBarH
             print("底部tabbar是\(self?.tabBarController?.tabBar.frame.size.height ?? 0)")

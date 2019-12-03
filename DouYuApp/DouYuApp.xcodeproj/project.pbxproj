@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA33D18623969CAB000AB1E9 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33D18523969CAB000AB1E9 /* RecommendViewController.swift */; };
+		BA33D1882396AF83000AB1E9 /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33D1872396AF83000AB1E9 /* CollectionHeaderView.swift */; };
 		BA5B0A78236F148500F3F984 /* PageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B0A77236F148500F3F984 /* PageTitleView.swift */; };
 		BA5B0A7B236F163300F3F984 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B0A7A236F163300F3F984 /* Common.swift */; };
 		BA7B053B238252220065A5FA /* PageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B053A238252220065A5FA /* PageContentView.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		BA33D18523969CAB000AB1E9 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		BA33D1872396AF83000AB1E9 /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
 		BA5B0A77236F148500F3F984 /* PageTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTitleView.swift; sourceTree = "<group>"; };
 		BA5B0A7A236F163300F3F984 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		BA7B053A238252220065A5FA /* PageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentView.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		BAECCDF92366D72C000D565B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BA33D1872396AF83000AB1E9 /* CollectionHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAECCDF52366D3D6000D565B /* MainTabBarController.swift in Sources */,
+				BA33D1882396AF83000AB1E9 /* CollectionHeaderView.swift in Sources */,
 				BA7B053D23825D440065A5FA /* UIColor-Extension.swift in Sources */,
 				BA33D18623969CAB000AB1E9 /* RecommendViewController.swift in Sources */,
 				BAAE193D22105A4B00E8F10C /* AppDelegate.swift in Sources */,
