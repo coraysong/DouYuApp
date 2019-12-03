@@ -10,7 +10,6 @@ import UIKit
 
 private let kTitleViewH : CGFloat = 40
 
-
 class HomeViewController: UIViewController {
     
     //MARK:-懒加载属性
@@ -28,11 +27,22 @@ class HomeViewController: UIViewController {
     private lazy var pageContentView : PageContentView = { [weak self] in
         
         //1.确定内容的frame
-        let contentH = kScreenH - (self?.navigationController?.navigationBar.frame.size.height)! - kTitleViewH
+        var contentH : CGFloat = CGFloat(0)
+        if #available(iOS 11.0, *) {
+            contentH = kScreenH - (self?.navigationController?.navigationBar.frame.size.height)! - kTitleViewH - (self?.tabBarController?.tabBar.frame.size.height)! - (self?.view.safeAreaInsets.bottom)! - kStatusBarH
+            print("底部tabbar是\(self?.tabBarController?.tabBar.frame.size.height ?? 0)")
+            print("底部安全区域是\(self?.view.safeAreaInsets.bottom ?? 0)")
+        } else {
+            // Fallback on earlier versions
+            contentH = kScreenH - (self?.navigationController?.navigationBar.frame.size.height)! - kTitleViewH - (self?.tabBarController?.tabBar.frame.size.height)! - kStatusBarH
+        }
         let contentFrame = CGRect(x: 0, y: kStatusBarH + (self?.navigationController?.navigationBar.frame.size.height)! + kTitleViewH, width: kScreenW, height: contentH)
         //2.确定所有的子控制器
         var childVcs = [UIViewController]()
-        for _ in 0..<4 {
+        
+        childVcs.append(RecommendViewController())
+        
+        for _ in 0..<3 {
             let vc = UIViewController()
             vc.view.backgroundColor = UIColor.init(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)))
             childVcs.append(vc)

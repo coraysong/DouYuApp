@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA33D18623969CAB000AB1E9 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33D18523969CAB000AB1E9 /* RecommendViewController.swift */; };
 		BA5B0A78236F148500F3F984 /* PageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B0A77236F148500F3F984 /* PageTitleView.swift */; };
 		BA5B0A7B236F163300F3F984 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B0A7A236F163300F3F984 /* Common.swift */; };
 		BA7B053B238252220065A5FA /* PageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B053A238252220065A5FA /* PageContentView.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA33D18523969CAB000AB1E9 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		BA5B0A77236F148500F3F984 /* PageTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTitleView.swift; sourceTree = "<group>"; };
 		BA5B0A7A236F163300F3F984 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		BA7B053A238252220065A5FA /* PageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentView.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				BAECCE032366D7F8000D565B /* HomeViewController.swift */,
+				BA33D18523969CAB000AB1E9 /* RecommendViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 			files = (
 				BAECCDF52366D3D6000D565B /* MainTabBarController.swift in Sources */,
 				BA7B053D23825D440065A5FA /* UIColor-Extension.swift in Sources */,
+				BA33D18623969CAB000AB1E9 /* RecommendViewController.swift in Sources */,
 				BAAE193D22105A4B00E8F10C /* AppDelegate.swift in Sources */,
 				BA5B0A78236F148500F3F984 /* PageTitleView.swift in Sources */,
 				BA7B053B238252220065A5FA /* PageContentView.swift in Sources */,
