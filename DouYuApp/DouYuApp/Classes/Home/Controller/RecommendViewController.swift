@@ -37,15 +37,19 @@ class RecommendViewController: UIViewController {
         //创建UICollectionView
         let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: layOut)
         
-        collectionView.backgroundColor = .orange
+        collectionView.backgroundColor = .white
         
         collectionView.dataSource = self
         
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kNormalCellID)
+        //collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kNormalCellID)
+        
+        collectionView.register(CollectionNormalCell.self, forCellWithReuseIdentifier: kNormalCellID)
         
         collectionView.register(CollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
         
         collectionView.autoresizingMask = [.flexibleHeight,.flexibleWidth]
+        
+        
         
         return collectionView
     }()
