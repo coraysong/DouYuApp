@@ -91,7 +91,7 @@ extension RecommendViewController: UICollectionViewDataSource {
         //1.取出section的HeaderView
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeaderViewID, for: indexPath)
         
-        headerView.backgroundColor = .green
+        headerView.backgroundColor = .white
         
         return headerView
     }
