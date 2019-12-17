@@ -10,11 +10,12 @@ import UIKit
 
 private let kItemMargin : CGFloat = 10
 private let kItemW : CGFloat = (kScreenW - 3 * kItemMargin) / 2
-private let kItemH : CGFloat = kItemW * 3 / 4
-
+private let kNormalItemH : CGFloat = kItemW * 3 / 4
+private let kPrettyItemH : CGFloat = kItemW * 4 / 3
 private let kHeaderViewH : CGFloat = 50
 
 private let kNormalCellID = "kNormalCellID"
+private let kPrettyCellID = "kPrettyCellID"
 private let kHeaderViewID = "kHeaderViewID"
 
 class RecommendViewController: UIViewController {
@@ -24,7 +25,7 @@ class RecommendViewController: UIViewController {
         
         //1.创建布局
         let layOut = UICollectionViewFlowLayout()
-        layOut.itemSize = CGSize(width: kItemW, height: kItemH)
+        layOut.itemSize = CGSize(width: kItemW, height: kNormalItemH)
         //行间距
         layOut.minimumInteritemSpacing = 0
         //j中间间距
@@ -41,9 +42,13 @@ class RecommendViewController: UIViewController {
         
         collectionView.dataSource = self
         
+        collectionView.delegate = self
+        
         //collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kNormalCellID)
         
         collectionView.register(CollectionNormalCell.self, forCellWithReuseIdentifier: kNormalCellID)
+        
+        collectionView.register(CollectionPrettyViewCell.self, forCellWithReuseIdentifier: kPrettyCellID)
         
         collectionView.register(CollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
         
@@ -73,7 +78,7 @@ extension RecommendViewController {
 
 
 //遵守数据源协议
-extension RecommendViewController: UICollectionViewDataSource {
+extension RecommendViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 10
@@ -85,9 +90,16 @@ extension RecommendViewController: UICollectionViewDataSource {
     
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath)
-        cell.backgroundColor = .red
         
+        //1.定义cell
+        var cell: UICollectionViewCell!
+        
+        //2.取出cell
+        if indexPath.section == 1 {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath)
+        } else {
+           cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath)
+        }
         return cell
     }
     
@@ -98,6 +110,13 @@ extension RecommendViewController: UICollectionViewDataSource {
         headerView.backgroundColor = .white
         
         return headerView
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.section == 1 {
+            return CGSize(width: kItemW, height: kPrettyItemH)
+        }
+        return CGSize(width: kItemW, height: kNormalItemH)
     }
     
 }

@@ -39,11 +39,11 @@ class CollectionNormalCell: UICollectionViewCell {
         super.init(frame: frame)
         
         addSubview(iconImageView)
-        iconImageView.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 10, paddingRight: 0, width: 14, height: 14)
+        iconImageView.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 5, paddingRight: 0, width: 14, height: 14)
         addSubview(photoImageView)
         photoImageView.anchor(top: topAnchor, left: leftAnchor, bottom: iconImageView.topAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 5, paddingRight: 0, width: 0, height: 0)
         addSubview(titleLabel)
-        titleLabel.anchor(top: nil, left: iconImageView.rightAnchor, bottom: bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 11, paddingBottom: 10, paddingRight: 0, width: 300, height: 11)
+        titleLabel.anchor(top: nil, left: iconImageView.rightAnchor, bottom: bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 300, height: 24)
     }
     
     required init?(coder: NSCoder) {
