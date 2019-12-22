@@ -21,6 +21,9 @@ private let kHeaderViewID = "kHeaderViewID"
 class RecommendViewController: UIViewController {
 
     //MARK:- 懒加载属性
+    
+    private lazy var recommendVM: RecommendViewModel = RecommendViewModel()
+    
     private lazy var collectionView : UICollectionView = { [unowned self] in
         
         //1.创建布局
@@ -28,7 +31,7 @@ class RecommendViewController: UIViewController {
         layOut.itemSize = CGSize(width: kItemW, height: kNormalItemH)
         //行间距
         layOut.minimumInteritemSpacing = 0
-        //j中间间距
+        //中间间距
         layOut.minimumLineSpacing = kItemMargin
         
         layOut.sectionInset = UIEdgeInsets(top: 0, left: kItemMargin, bottom: 0, right: kItemMargin)
@@ -62,9 +65,11 @@ class RecommendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //1.设置UI界面
         setUpUI()
         
-        
+        //发送网络请求
+        loadData()
     }
 
 }
@@ -73,6 +78,13 @@ class RecommendViewController: UIViewController {
 extension RecommendViewController {
     private func setUpUI() {
         view.addSubview(collectionView)
+    }
+}
+
+//MARK:- 请求数据
+extension RecommendViewController {
+    private func loadData() {
+        recommendVM.requestData()
     }
 }
 
